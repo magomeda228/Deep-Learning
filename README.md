@@ -8,3 +8,9 @@
 
 Каждому файлу в репозитории прилагается дополнительный файл с названием "Read" (например, для файла "Convolutional Neural Networks" будет файл "READ Convolutional Neural Networks"), 
 в котором содержатся основные выводы, важные параметры и краткий обзор выполненной работы.
+
+This repository contains Deep Learning projects that apply various methods and approaches to solve classification, regression, and other types of data analysis problems. The repository includes neural networks of different architectures, such as convolutional and recurrent networks, transformers, and other modern models like GANs (Generative Adversarial Networks) and autoencoders. It also explores methods for optimizing and tuning models, such as supervised and unsupervised learning, as well as advanced regularization and attention techniques.
+
+Special attention is given to the use of transformers for processing sequential data, as well as convolutional networks for image and video processing tasks. Data visualization and graphs, such as heatmaps, loss curves, and metrics, are used to analyze and improve the quality of models.
+
+Each file in the repository is accompanied by an additional file named "Read" (for example, for the file "Convolutional Neural Networks," there will be a file "READ Convolutional Neural Networks"), which contains key findings, important parameters, and a brief overview of the work performed.
