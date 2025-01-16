@@ -1,0 +1,52 @@
+Describe lab work Fine tuning transfer learning 
+
+В работе решалась задача классификации изображений кошек и собак с использованием модели MobileNetV2.
+Были проведены эксперименты без аугментации, с аугментацией, а также с методами fine-tuning и transfer learning.
+
+Без аугментации
+Без аугментации лосс-функция на валидации стабилизировалась на уровне 1.0 и не улучшалась, 
+в то время как accuracy на обучении была ~0.92, а на валидации ~0.7. Модель не могла нормально обобщать.
+
+С аугментацией
+С аугментацией (масштабирование и горизонтальная ротация) лосс-функция на валидации стабилизировалась на уровне 0.62, 
+а на обучении продолжала снижаться. Accuracy на валидации достигла ~0.8, а на обучении продолжала расти. Аугментация улучшила стабилизацию модели.
+
+Fine-Tuning с MobileNetV2
+Использование fine-tuning на предобученной модели MobileNetV2 значительно улучшило результаты.
+Лосс-функция стабилизировалась на ~0.2 и ~0.05 на валидации и обучении соответственно, а accuracy достигла ~0.95 на валидации и ~0.99 на обучении. 
+Fine-tuning дал наилучший результат.
+
+Transfer Learning
+В transfer learning только последний слой был обучаемым, остальные слои заморожены. 
+Лосс-функция стабилизировалась на уровне 0.1 на валидации, accuracy на обучении была 0.98, а на валидации — 0.97.
+Модель быстро адаптировалась, но результаты уступали fine-tuning.
+
+Заключение
+Fine-tuning с предобученной моделью MobileNetV2 показал лучшие результаты по accuracy и снижению функции потерь. 
+Transfer learning также дал хорошие результаты, но fine-tuning оказался более эффективным для нашей задачи.
+
+The task of classifying images of cats and dogs was addressed using the MobileNetV2 model. 
+Experiments were conducted with and without augmentation, as well as with fine-tuning and transfer learning methods.
+
+Without Augmentation
+Without augmentation, the loss function on the validation set stabilized at 1.0 without improvement, 
+while accuracy on the training set was around 0.92 and on the validation set ~0.7. The model was unable to generalize effectively.
+
+With Augmentation
+With augmentation (scaling and horizontal rotation), the loss function on the validation set stabilized at 0.62,
+while it continued to decrease on the training set. Accuracy on the validation set reached ~0.8, while it continued to rise on the training set,
+  improving model stability.
+
+Fine-Tuning with MobileNetV2
+Using fine-tuning on the pre-trained MobileNetV2 model significantly improved the results. 
+The loss function stabilized at ~0.2 on the validation set and ~0.05 on the training set, 
+while accuracy reached ~0.95 on the validation set and ~0.99 on the training set. Fine-tuning provided the best results.
+
+Transfer Learning
+In transfer learning, only the last layer was trainable, and the other layers were frozen. 
+The loss function stabilized at 0.1 on the validation set, and accuracy on the training set was 0.98, 
+while on the validation set it was 0.97. The model adapted quickly, but the results were not as good as those from fine-tuning.
+
+Conclusion
+Fine-tuning with the pre-trained MobileNetV2 model showed the best results in terms of accuracy and loss reduction.
+Transfer learning also yielded good results, but fine-tuning proved to be more effective for our task.
