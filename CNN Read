@@ -1,0 +1,36 @@
+В ходе выполнения лабораторной работы, 
+посвященной классификации изображений на базе ResNet модели на датасете CIFAR-10, были исследованы различные подходы к обучению и аугментации данных.
+
+Использование планировщика изменения шага обучения MultiStepLR с гиперпараметром γ = 0.1, с изменением шага на эпохах 10 и 15, показало наилучшие результаты. 
+Функция потерь на валидации снизилась с 1.6 до 1.1, на тренировочной выборке — до 0.9. 
+Метрика точности на валидации увеличилась с 0.35 до 0.64, в то время как на тренировочной выборке она колебалась около 0.7. Это показало стабильность обучения и правильность настроек модели.
+
+При использовании фиксированной малой скорости обучения (lr = 0.001) результаты оказались хуже. Точность на валидации и тесте составила 0.48, а точность на тренировочной выборке — 0.7, 
+что также подтверждает важность динамического изменения шага обучения для улучшения результатов.
+
+Использование косинусоидального изменения шага обучения с периодом T=10 дало результаты, немного хуже, чем ступенчатое изменение: функция потерь увеличилась до 1.12, а точность на валидации составила 0.62.
+
+Добавление случайного вращения изображений относительно горизонтальной оси с планировщиком изменения шага обучения не повлияло на результаты: метрики точности и функции потерь остались почти такими же, как и без аугментации.
+
+Добавление более сложной трансформации изображений (яркость = (0.75, 1.25), контраст = (0.75, 1.25), насыщенность = (0.75, 1.25), оттенок = (-0.1, 0.1)) увеличило время выполнения с 4 минут до 14 минут. 
+При этом точность на валидации снизилась с 0.63 до 0.60, а функция потерь увеличилась с 1.1 до 1.15, что указывает на некоторое ухудшение результатов из-за использования этих трансформаций.
+
+В целом, работа показала, что ступенчатое изменение шага обучения является наиболее эффективным подходом для улучшения результатов классификации на этом датасете,
+в то время как слишком агрессивная аугментация изображений может снизить производительность модели.
+
+
+In the course of this lab, focused on image classification using a ResNet model on the CIFAR-10 dataset, various training approaches and data augmentations were explored.
+
+The use of the MultiStepLR learning rate scheduler with the hyperparameter γ = 0.1, with step changes at epochs 10 and 15, yielded the best results. 
+The validation loss decreased from 1.6 to 1.1, and the training loss decreased to 0.9. The validation accuracy increased from 0.35 to 0.64, while the training accuracy fluctuated around 0.7, indicating stable learning and appropriate model configuration.
+
+When using a fixed small learning rate (lr = 0.001), the results were worse. The accuracy on the validation and test sets was 0.48, while training accuracy was 0.7, further confirming the importance of dynamic learning rate adjustment for improving performance.
+
+Using cosine annealing for the learning rate with a period of T=10 resulted in slightly worse outcomes than the step-wise approach: the loss function increased to 1.12, and the validation accuracy was 0.62.
+
+Adding random horizontal rotation to the images with the learning rate scheduler did not affect the results: the accuracy and loss metrics remained almost the same as without augmentation.
+
+Adding more complex image transformations (brightness = (0.75, 1.25), contrast = (0.75, 1.25), saturation = (0.75, 1.25), hue = (-0.1, 0.1)) increased execution time from 4 minutes to 14 minutes.
+At the same time, the validation accuracy dropped from 0.63 to 0.60, and the loss increased from 1.1 to 1.15, indicating a slight degradation in performance due to these transformations.
+
+Overall, the lab demonstrated that step-wise learning rate adjustment is the most effective approach for improving results on this dataset, while overly aggressive image augmentation may reduce the model's performance.
